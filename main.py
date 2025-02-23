@@ -2,7 +2,6 @@ import streamlit as st
 import ollama
 import chromadb
 from PyPDF2 import PdfReader
-import os
 
 def extract_text_from_pdf(pdf_file):
     reader = PdfReader(pdf_file)
@@ -22,7 +21,6 @@ def query_ollama(model, prompt):
     response = ollama.chat(model=model, messages=[{"role": "user", "content": prompt}])
     return response["message"]["content"]
 
-# Streamlit UI
 st.title("Deepseek RAGe")
 
 # Initialize ChromaDB
